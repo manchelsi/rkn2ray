@@ -1,0 +1,12 @@
+.idea
+
+/domain-list-community
+z-i/*
+__pycache__
+
+# Generated dat file.
+zapretinfo.dat
+zapretinfo
+
+# Exported plaintext lists.
+/*.txt
