@@ -24,3 +24,7 @@ dat создается тулзой https://github.com/v2fly/domain-list-communi
             },       
 
 ```
+
+Python modules: requests, url-normalize, PyYAML
+
+Для исключения доменов, добавить нужные домены в config.yaml, секцию EXCLUDES

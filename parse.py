@@ -1,4 +1,4 @@
-#!/usr/bin/env pypy3
+#!/usr/bin/env python3
 """
 Парсер https://github.com/zapret-info/z-i/raw/master/dump.csv
 для использования в v2ray или xray.
@@ -12,18 +12,20 @@ import csv
 import sys
 from url_normalize import url_normalize
 from urllib.parse import urlparse
+import yaml
 
 csv.field_size_limit(sys.maxsize)
 
-FILENAME = 'z-i/dump.csv'
-OUTFILE  = 'zapretinfo'
+with open('config.yaml') as f:
+    conf = yaml.safe_load(f)
+
+FILEDUMP = conf['FILEDUMP']
+OUTFILE  = conf['OUTFILE']
+EXCLUDE  = conf['EXCLUDE']
 
 DOMAINS  = set()
 REGEXP   = set()
 FULL     = set()
-
-EXCLUDE  = ['youtube.com', 'www.youtube.com']
-
 
 def exclude(domain=None, url=None):
     """Исключение доменов из списка"""
@@ -93,7 +95,7 @@ def url_split(url):
 
 
 def read_dump():
-    with open(FILENAME, "r", newline="", encoding="windows-1251") as file:
+    with open(FILEDUMP, "r", newline="", encoding="windows-1251") as file:
         headers = next(file)
         fieldnames = [None, 'domain', 'url', None, None, None]
         reader = csv.DictReader(file, delimiter=';', fieldnames=fieldnames)

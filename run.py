@@ -1,4 +1,4 @@
-#!/usr/bin/env pypy3
+#!/usr/bin/env python3
 # apt install python3-requests
 # apt install python3-url-normalize pypy3
 
@@ -6,11 +6,15 @@ import requests
 from datetime import datetime,timedelta
 import parse
 import os
+import yaml
 
-DATEFILE = 'datefile.txt'
-URLDATE = 'https://github.com/zapret-info/z-i/commits/master.atom'
-URLDUMP = 'https://github.com/zapret-info/z-i/raw/master/dump.csv'
-FILEDUMP = 'z-i/dump.csv'
+with open('config.yaml') as f:
+    conf = yaml.safe_load(f)
+
+DATEFILE = conf['DATEFILE']
+URLDATE  = conf['URLDATE']
+URLDUMP  = conf['URLDUMP']
+FILEDUMP = conf['FILEDUMP']
 
 # Похоже, что время коммитов -1h, для соответствия MSK
 # добавить 4h

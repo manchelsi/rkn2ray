@@ -1,0 +1,10 @@
+---
+URLDATE  : 'https://github.com/zapret-info/z-i/commits/master.atom'
+URLDUMP  : 'https://github.com/zapret-info/z-i/raw/master/dump.csv'
+FILEDUMP : 'z-i/dump.csv'
+OUTFILE  : 'zapretinfo'
+DATEFILE : 'datefile.txt'
+
+EXCLUDE:  
+  - 'youtube.com'
+  - 'www.youtube.com'
